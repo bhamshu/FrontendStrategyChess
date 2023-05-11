@@ -1,6 +1,15 @@
 import React, { useLayoutEffect, useState } from "react";
 import "./Chessboard.css";
 
+const color_of_piece = (piece) => {
+  if (piece >= "\u265A" && piece <= "\u265F") {
+    return "black";
+  } else if (piece >= "\u2654" && piece <= "\u2659") {
+    return "white";
+  }
+  return "not_a_piece";
+};
+
 const Chessboard = () => {
   const [pieces, setPieces] = useState([
     "\u265C",
@@ -82,6 +91,11 @@ const Chessboard = () => {
     // either the span of piece or the div of cell may become event.target
     const targetIndex = parseInt(event.target.id || event.target.firstChild.id);
     const piece = pieces[sourceIndex];
+    const targetPiece = pieces[targetIndex];
+    if (color_of_piece(piece) == color_of_piece(targetPiece)) {
+      setHighlightedCell(null);
+      return;
+    }
     const newPieces = [...pieces];
     newPieces[sourceIndex] = "";
     newPieces[targetIndex] = piece;
