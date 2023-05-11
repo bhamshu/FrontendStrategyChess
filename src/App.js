@@ -69,6 +69,8 @@ const Chessboard = () => {
     "\u2656",
   ]);
 
+  const [highlightedCell, setHighlightedCell] = useState(null);
+
   const handleDrag = (event) => {
     event.dataTransfer.setData("source_index", event.target.id);
   };
@@ -86,9 +88,16 @@ const Chessboard = () => {
     console.log(event);
     console.log(`Moved piece ${piece} from ${sourceIndex} to ${targetIndex}`);
     setPieces(newPieces);
+    setHighlightedCell(null);
   };
 
   const [rowsState, setRowsState] = useState([]);
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+    const targetIndex = parseInt(event.target.id || event.target.firstChild.id);
+    setHighlightedCell(targetIndex);
+  };
 
   useLayoutEffect(() => {
     const rows = [];
@@ -99,9 +108,13 @@ const Chessboard = () => {
         const index = i * 8 + j;
         cells.push(
           <div
-            className={"cell" + (black ? " black" : "")}
+            className={
+              "cell" +
+              (black ? " black" : "") +
+              (highlightedCell === index ? " highlighted" : "")
+            }
             key={index}
-            onDragOver={(event) => event.preventDefault()}
+            onDragOver={handleDragOver}
             onDrop={handleDrop}
           >
             <span
@@ -122,7 +135,7 @@ const Chessboard = () => {
       );
       setRowsState(rows);
     }
-  }, [pieces]);
+  }, [pieces, highlightedCell]);
   return <div className="board">{rowsState}</div>;
 };
 

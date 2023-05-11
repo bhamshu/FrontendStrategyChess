@@ -24,3 +24,7 @@
 .white {
   background-color: #f0d9b5;
 }
+
+.highlighted {
+  background-color: yellow;
+}
