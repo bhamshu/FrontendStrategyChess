@@ -25,6 +25,15 @@
   background-color: #f0d9b5;
 }
 
-.highlighted {
+.drawer.black{
+  background-color: gray;
+}
+
+
+.highlighted, .drawer.black.highlighted{
   background-color: yellow;
+}
+
+.picked, .drawer.black.picked{
+  background-color: red;
 }
