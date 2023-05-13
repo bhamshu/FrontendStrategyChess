@@ -1,4 +1,3 @@
-import "./App.css";
 import "./Chessboard.css";
 import Chessboard from "./Chessboard";
 import Drawers from "./Drawers";
