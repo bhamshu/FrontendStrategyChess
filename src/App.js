@@ -232,6 +232,7 @@ function App() {
         </div>
       );
     } else {
+       // TODO: take out these buttons from here and put them in a separate file.
       setJsxToBeReturned(
         <utils.CompleteContext.Provider
           value={{
