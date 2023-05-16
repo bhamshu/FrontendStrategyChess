@@ -3,7 +3,7 @@ import RowOfDragOverableCells from "./RowOfDrawOverableCells.js";
 
 const Chessboard = () => {
   var chessboard_rows = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i <= 7; i++) {
     chessboard_rows.push(
       <RowOfDragOverableCells
         key={i}
