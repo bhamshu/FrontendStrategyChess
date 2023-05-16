@@ -1,3 +1,20 @@
+
+.root {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1px;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  max-width: 90vw;
+}
+
+
+
 .board {
   display: flex;
   flex-direction: column;
@@ -9,9 +26,9 @@
 }
 
 .cell {
-  width: 50px;
-  height: 50px;
-  font-size: 40px;
+  width: 6vh;
+  height: 6vh;
+  font-size: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,3 +54,25 @@
 .picked, .drawer.black.picked{
   background-color: red;
 }
+
+.deactivated, .drawer.black.deactivated{
+  background-color: darkgrey;
+}
+
+.bottom {
+  width: 48vh
+}
+
+.active_players, .active_requests {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.game_over {
+  pointer-events: none;
+}
+button {
+  pointer-events: auto;
+}
+
