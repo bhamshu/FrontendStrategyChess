@@ -1,3 +1,11 @@
+
+See Backend repository [here](https://github.com/bhamshu/FrontendStrategyChess/) and read the README there for description of the project.
+
+# Navigating the Codebase
+Almost all state is owned by `App.js`. It provides that state to its children by the help of `CompleteContext` which lives in `utils_and_consts.js`. It is the main component which the user interacts with throughout the game. The jsx it returns during `GamePlay` is composed of `Chessboard` and `Drawers` - both of which are in turn composed of `RowOfDrawOverableCells`. One instance of `RowOfDrawOverableCells` consists of eight cells. A large portion of core logic exists in this component, as it provides the functionality for moving pieces by dragging/picking them.
+
+For more context, see the [backend repository](https://github.com/bhamshu/FrontendStrategyChess/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
